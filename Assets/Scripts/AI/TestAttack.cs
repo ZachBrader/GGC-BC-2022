@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class TestAttack : MonoBehaviour, AttackType
 {
-    public void Attack(WoofersAI attacker)
+    public void Attack(GameObject attacker)
     {
-        Debug.Log("AI " + attacker + "attacks!");
+        Debug.Log("AI " + attacker.name + "attacks!");
 
     }
 }

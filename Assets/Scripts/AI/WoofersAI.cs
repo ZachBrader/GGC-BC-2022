@@ -74,7 +74,8 @@ public class WoofersAI : MonoBehaviour
     {
         if(playerDetected)
         {
-            attack.Attack(this);
+            agent.ResetPath();
+            attack.Attack(gameObject);
         }
         else
         {
@@ -198,5 +199,12 @@ public class WoofersAI : MonoBehaviour
         }
 
 
+    }
+
+    //Get-sets
+
+    public NavMeshAgent Agent
+    {
+        get { return agent; }
     }
 }

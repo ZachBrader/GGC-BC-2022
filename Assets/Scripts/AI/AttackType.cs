@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface AttackType
 {
-    public void Attack(WoofersAI attacker);
+    public void Attack(GameObject attacker);
 }
