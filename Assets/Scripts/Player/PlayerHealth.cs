@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public int health = 10;
+    public int health = 9;
+    private GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = GameManager.instance;
+    }
 
     public void TakeDamage(int damage)
     {
@@ -15,12 +21,12 @@ public class EnemyHealth : MonoBehaviour
         // Check if enemy has died
         if (health <= 0)
         {
-            EnemyDeath();
+            PlayerDeath();
         }
     }
 
-    void EnemyDeath()
+    void PlayerDeath()
     {
-        Destroy(gameObject);
+        Debug.Log("Player has died");
     }
 }

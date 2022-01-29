@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     PlayerWeapon playerWeapon;
 
+    public int attackDamage = 1;
     public Animator animator;
     public float attackRange = .5f; // Replace with item's range
     public LayerMask enemyLayers;
@@ -32,8 +33,8 @@ public class PlayerAttack : MonoBehaviour
         {
             // if (playerWeapon.currentWeapons[1])
             {
-                Melee();
-                //Shoot();
+                //Melee();
+                Shoot();
             }
         }
         
@@ -57,6 +58,8 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("Hit " + enemy.name);
             // Damage Enemies
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+
         }
 
     }

@@ -224,3 +224,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTillDespawn: 5
+  targetTag: Enemy

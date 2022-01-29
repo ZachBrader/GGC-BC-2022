@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int attackDamage = 1;
     public float timeTillDespawn = 5f;
     private float despawnTimeTracker = 0f;
+
+    public string targetTag;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +23,17 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == targetTag)
+        {
+            Debug.Log("Hit " + collision.transform.name);
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(attackDamage);
+        }
+
+        Destroy(gameObject);
     }
 }
