@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -8,10 +6,10 @@ public class Interactable : MonoBehaviour
     public Transform interactionTransform;
 
     public bool canInteract = false;
-    bool hasInteracted = false;
+    protected bool hasInteracted = false;
 
-    PlayerController playerController;
-    Transform playerPosition;
+    protected PlayerController playerController;
+    protected Transform playerPosition;
 
     private void Awake()
     {
@@ -30,13 +28,17 @@ public class Interactable : MonoBehaviour
             playerController.SetFocus(this);
         }
 
-        if (distance > radius)
+        if (playerController.focus == this)
         {
-            playerController.RemoveFocus();
+            if (distance > radius)
+            {
+                playerController.RemoveFocus();
+            }
         }
+        
     }
 
-    public bool OnInteract()
+    public virtual bool OnInteract()
     {
         if (canInteract && !hasInteracted)
         {
