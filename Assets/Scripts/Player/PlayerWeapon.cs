@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    private Inventory inventory;
-    Weapon[] currentWeapons;
+    #region Singleton
+    public static PlayerWeapon instance;
 
-    public Weapon melee;
-    public Weapon ranged;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Multiple Instances Detected");
+            return;
+        }
+        instance = this;
+    }
+    #endregion
+
+    private Inventory inventory;
+    public Weapon[] currentWeapons;
 
     public delegate void OnWeaponChanged(Weapon newItem, Weapon oldItem);
     public OnWeaponChanged onWeaponChanged;
@@ -31,31 +42,36 @@ public class PlayerWeapon : MonoBehaviour
             oldItem = currentWeapons[slotIndex];
             inventory.Add(oldItem);
         }
+        
+        currentWeapons[slotIndex] = newItem;
+
+        // Update UI
         if (onWeaponChanged != null)
         {
             onWeaponChanged.Invoke(newItem, oldItem);
         }
-
-        currentWeapons[slotIndex] = newItem;
-
     }
 
+    // Remove an item from player's weapons and add to inventory 
     public void Unequip(int slotIndex)
     {
         if (currentWeapons[slotIndex] != null)
         {
             Weapon oldItem = currentWeapons[slotIndex];
             inventory.Add(oldItem);
+            
+            currentWeapons[slotIndex] = null;
 
+            // Update UI
             if (onWeaponChanged != null)
             {
+                Debug.Log("Unequip Change");
                 onWeaponChanged.Invoke(null, oldItem);
             }
-
-            currentWeapons[slotIndex] = null;
         }
     }
 
+    // Remove all weapons
     public void UnequipAll()
     {
         for (int i = 0; i < currentWeapons.Length; i++)
@@ -64,6 +80,7 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    // Test function to remove weapons
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.U))
