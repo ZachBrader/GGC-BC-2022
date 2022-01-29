@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     // Public
-    public float restartDelay = 2f; // Delay before restarting game
+    public float restartDelay = 7f; // Delay before restarting game
     public GameObject completeLevelUI; // Reference to UI element for selecting next level
     
     // Private
