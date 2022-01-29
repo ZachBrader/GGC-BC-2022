@@ -11,6 +11,8 @@ public class InventorySlot : MonoBehaviour
     // Add Item to slot
     public void AddItem(Item newItem)
     {
+        Debug.Log("Adding new item");
+        Debug.Log(newItem);
         item = newItem;
 
         if (item.icon != null)
