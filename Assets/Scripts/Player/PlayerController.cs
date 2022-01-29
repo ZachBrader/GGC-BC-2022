@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
             bool completedAction = focus.OnInteract(); 
             if (completedAction) // If action is completed successfully
             {
+                Debug.Log("Player used the item");
                 RemoveFocus(); // Remove used item
             }
         }
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         if (newFocus != focus)
         {
+            Debug.Log(focus == null);
             if (focus != null)
             {
                 RemoveFocus();
@@ -64,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
             // Allow player to interact with it
             newFocus.canInteract = true;
-            Debug.Log("Interactable object found!");
         }
     }
 
