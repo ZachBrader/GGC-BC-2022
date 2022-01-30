@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (!gameHasEnded)
         {
             Debug.Log("Level over!");
-            // completeLevelUI.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             gameHasEnded = true;
         }
         

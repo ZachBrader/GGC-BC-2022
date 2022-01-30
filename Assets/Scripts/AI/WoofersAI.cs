@@ -104,7 +104,7 @@ public class WoofersAI : MonoBehaviour
             //play audio every so often
             if (timeSinceLastPatrolSound >= timeBetweenPatrolSoundPlaying)
             {
-                AudioHelper.PlayIfNotPlaying(audio, patrolSound);
+                // AudioHelper.PlayIfNotPlaying(audio, patrolSound);
                 timeSinceLastPatrolSound = 0;
 
             }
@@ -135,6 +135,8 @@ public class WoofersAI : MonoBehaviour
         }
 
         //distance to objective
+        Debug.Log(patrolPoints);
+        Debug.Log(patrolPoints.Current());
         float distance = Vector3.Distance(patrolPoints.Current().position, transform.position);
 
         if (distance <= goodEnough)
