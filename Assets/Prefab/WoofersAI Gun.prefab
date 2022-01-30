@@ -90,7 +90,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
   goodEnough: 3
   patrolSpeed: 10
   playerDetectionMask:
