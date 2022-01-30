@@ -17,7 +17,7 @@ public class DogCage : MonoBehaviour
     // Public
     public string promptMessage = "Key Required";
     public GameObject puppyPrefab;
-    public float radius = 6f; // How close player needs to be to object
+    public float radius = 30f; // How close player needs to be to object
     public Transform interactionTransform;
 
     public bool canInteract = false;
@@ -40,12 +40,13 @@ public class DogCage : MonoBehaviour
         float distance = Vector3.Distance(playerPosition.position, interactionTransform.position);
         if (distance <= radius)
         {
-            promptManager.ShowPrompt(promptMessage);
+            Debug.Log("Use a key");
+            promptManager?.ShowPrompt(promptMessage);
             Unlock();
         }
         else
         {
-            promptManager.ClosePrompt();
+            promptManager?.ClosePrompt();
         }
 
     }
@@ -60,7 +61,7 @@ public class DogCage : MonoBehaviour
 
                 goalManager.dogCages.Remove(this);
                 hasInteracted = true;
-                promptManager.ClosePrompt();
+                promptManager?.ClosePrompt();
                 Destroy(gameObject);
             }
         }
