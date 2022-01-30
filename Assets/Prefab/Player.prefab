@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
-  speed: 25
+  speed: 30
 --- !u!114 &3329499628904712872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,10 +136,11 @@ MonoBehaviour:
   bullet: {fileID: 5177115547561540453, guid: 7810b176fbd9acb4a898fce21b044d7e, type: 3}
   bulletSpeed: 50
   animator: {fileID: 0}
-  attackRange: 0.5
+  attackRange: 1.29
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  onAttackAudio: {fileID: 0}
 --- !u!114 &7687146746949728091
 MonoBehaviour:
   m_ObjectHideFlags: 0

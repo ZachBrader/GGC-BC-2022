@@ -130,7 +130,7 @@ public class PlayerHealth : MonoBehaviour
         //the time the blinking should stop
         float endTime = Time.time + invincibilityTime;
         float lastBlinkTime = 0;
-        Renderer renderer = gameObject.GetComponent<Renderer>();
+        Renderer[] renderers = GameObject.Find("Player/Graphics").GetComponentsInChildren<Renderer>();
 
         while (Time.time < endTime)
         {
@@ -143,7 +143,8 @@ public class PlayerHealth : MonoBehaviour
             if (Time.time - lastBlinkTime >= 1/ (2*blinkFrequency))
             {
                 //flip visibility
-                renderer.enabled = !renderer.enabled;
+                foreach (Renderer renderer in renderers)
+                    renderer.enabled = !renderer.enabled;
                 lastBlinkTime = Time.time; // update last blink time
             }
 
@@ -152,6 +153,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         //blinking is done
-        renderer.enabled = true; //turn on renderer
+        foreach (Renderer renderer in renderers)
+            renderer.enabled = true; //turn on renderer
     }
 }
