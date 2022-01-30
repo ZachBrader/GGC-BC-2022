@@ -14,6 +14,9 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange = .5f; // Replace with item's range
     public LayerMask enemyLayers;
 
+    public AudioClip onAttackAudio;
+    private AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
             firingPoint = transform;
         }
 
+        source = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
     }
 
@@ -44,6 +48,8 @@ public class PlayerAttack : MonoBehaviour
     void Melee()
     {
         Debug.Log("Melee");
+
+
 
         // Play melee animation
         animator.Play("PlayerMelee");
