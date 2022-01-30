@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c4048e13642f248aa39cc723f02287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipAudio: {fileID: 8300000, guid: ecdb73d7ded18704890601d757df4ba2, type: 3}
   currentWeapons: []
   defaultMelee: {fileID: 11400000, guid: a6a066cf7d87f3c42aeb0f144da59ca1, type: 2}
   defaultGun: {fileID: 11400000, guid: 64b77c47eda6c0c44882612914216576, type: 2}

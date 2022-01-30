@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class ChestInteract : Interactable
 {
+    // Private
+    AudioSource audioSource;
+    
+    // Public
     public Item item;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public override void Interact()
     {
         base.Interact();
+
+        audioSource.Play();
 
         Pickup();
     }
 
     void Pickup()
     {
-        Debug.Log("Picking up " + item.name);
-
         // Add Item to inventory
         bool wasPickedUp = Inventory.instance.Add(item);
 
+        // Destroy if item was picked up
         if (wasPickedUp)
         {
             Destroy(this.gameObject);

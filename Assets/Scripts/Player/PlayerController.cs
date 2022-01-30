@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
             bool completedAction = focus.OnInteract(); 
             if (completedAction) // If action is completed successfully
             {
-                Debug.Log("Player used the item");
                 RemoveFocus(); // Remove used item
             }
         }

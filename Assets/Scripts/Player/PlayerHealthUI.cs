@@ -14,9 +14,6 @@ public class PlayerHealthUI : MonoBehaviour
     {
         playerHealth = PlayerHealth.instance;
         playerHealth.onHealthChanged += UpdateUI;
-
-        Debug.Log(playerHealth);
-
         healthPoints = itemsParent.GetComponentsInChildren<Image>();
     }
 

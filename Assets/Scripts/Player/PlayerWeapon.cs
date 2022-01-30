@@ -15,10 +15,16 @@ public class PlayerWeapon : MonoBehaviour
             return;
         }
         instance = this;
+
+        audioSource = GetComponent<AudioSource>();
+        Debug.Log(audioSource);
     }
     #endregion
 
     private Inventory inventory;
+    private AudioSource audioSource;
+
+    public AudioClip equipAudio;
     public Weapon[] currentWeapons;
     public Weapon defaultMelee;
     public Weapon defaultGun;
@@ -34,12 +40,14 @@ public class PlayerWeapon : MonoBehaviour
         inventory = Inventory.instance;
 
         // Equip defaults
-        Equip(defaultMelee);
-        Equip(defaultGun);
+        currentWeapons[0] = defaultMelee;
+        currentWeapons[1] = defaultGun;
+        onWeaponChanged?.Invoke(null, null);
     }
 
     public void Equip(Weapon newItem)
     {
+        audioSource.PlayOneShot(equipAudio, 10f);
         int slotIndex = (int)newItem.weaponType;
 
         Weapon oldItem = null;
