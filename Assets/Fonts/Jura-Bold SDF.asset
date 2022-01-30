@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Jura-Bold SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1500323093
   material: {fileID: 1694539191857707454}
-  materialHashCode: 0
+  materialHashCode: -1579235947
   m_Version: 1.1.0
   m_SourceFontFileGUID: 68f3a6f2393c06549a8735750cf79fb4
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 68f3a6f2393c06549a8735750cf79fb4, type: 3}
@@ -2560,9 +2560,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
