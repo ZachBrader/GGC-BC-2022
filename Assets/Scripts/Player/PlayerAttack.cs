@@ -44,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
     void Melee()
     {
         Debug.Log("Melee");
+
         // Play melee animation
         animator.Play("PlayerMelee");
         

@@ -91,7 +91,7 @@ public class WoofersAI : MonoBehaviour
     }
 
     //damage player if they touch the AI
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         //check if other is player. If so, do damage
         if (other.tag.Equals("Player"))
