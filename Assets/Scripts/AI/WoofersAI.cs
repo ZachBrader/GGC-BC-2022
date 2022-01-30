@@ -76,7 +76,7 @@ public class WoofersAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         patrolPoints.resetCurrentIndex();
         attack = attackHolder.GetComponent<AttackType>();
-        audio = GetComponent<AudioSource>();
+        audio = GetComponentInParent<AudioSource>();
 
         StartCoroutine(FOVRoutine());
         StartCoroutine(PlayerDetectedRoutine());
@@ -87,7 +87,7 @@ public class WoofersAI : MonoBehaviour
     {
         if(playerDetected)
         {
-            if (playerDetectedLastFrame)
+            if (playerDetectedLastFrame != playerDetected)
             {
                 //if this is the first frame of the player being detected
                 //play audio
@@ -104,8 +104,9 @@ public class WoofersAI : MonoBehaviour
             //play audio every so often
             if (timeSinceLastPatrolSound >= timeBetweenPatrolSoundPlaying)
             {
-                audio.clip = patrolSound;
-                audio.Play();
+                AudioHelper.PlayIfNotPlaying(audio, patrolSound);
+                timeSinceLastPatrolSound = 0;
+
             }
         }
 
