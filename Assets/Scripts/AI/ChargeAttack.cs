@@ -57,8 +57,13 @@ public class ChargeAttack : MonoBehaviour, AttackType
 
     }
 
-    void AttackType.DoDamage(GameObject target)
+    public void DoDamage(GameObject target)
     {
         target.GetComponent<PlayerHealth>().TakeDamage(damage);
+    }
+
+    public void ResetTimeSinceLastAttack()
+    {
+        timeSinceLastAttack = 0;
     }
 }
