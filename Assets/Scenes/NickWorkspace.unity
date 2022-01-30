@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1446563078}
-  offset: {x: 0, y: 10, z: 0}
+  offset: {x: 0, y: 15, z: 0}
   pitch: -30
   yawSpeed: 100
   zoomSpeed: 4
@@ -2086,7 +2086,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 10
-  m_Acceleration: 100
+  m_Acceleration: 10000
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
@@ -2108,8 +2108,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 2.3060126, z: 3.267679}
-  m_Center: {x: 4.6560342e-18, y: 1.0582201, z: -0.9}
+  m_Size: {x: 1.86, y: 2.3060126, z: 3.267679}
+  m_Center: {x: 4.6560342e-18, y: 1.0582201, z: 0}
 --- !u!4 &1531770436
 Transform:
   m_ObjectHideFlags: 0
@@ -2118,7 +2118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531770433}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -14.08, y: 2.18, z: -10.21}
+  m_LocalPosition: {x: -13.98, y: 2.18, z: -10.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2156,7 +2156,7 @@ MonoBehaviour:
     m_Bits: 0
   fovDetectionDistance: 10
   fovDetectionAngle: 30
-  noFOVDetectionDistance: 5
+  noFOVDetectionDistance: 7
   dropDetectionDistance: 15
   attackHolder: {fileID: 1732078903}
 --- !u!1 &1600697143
@@ -2440,9 +2440,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1732078903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb6cbc18adc16b344a3386760b862f35, type: 3}
+  m_Script: {fileID: 11500000, guid: 39cebdd5b875c6944ab992bfda120c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  approachSpeed: 1
+  dashSpeed: 15
+  dashTime: 1
+  attackFrequency: 3
+  damage: 1
 --- !u!1 &1770591241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079526456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2, z: -0.93}
+  m_LocalPosition: {x: -0, y: 2.2, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2689,7 +2694,7 @@ GameObject:
   - component: {fileID: 2087822856}
   - component: {fileID: 2087822855}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Obsticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
