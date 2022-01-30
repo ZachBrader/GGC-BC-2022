@@ -6,25 +6,33 @@ public class Interactable : MonoBehaviour
     public Transform interactionTransform;
 
     public bool canInteract = false;
+    public string promptMessage = "Press 'P' to interact";
     protected bool hasInteracted = false;
 
     protected PlayerController playerController;
     protected Transform playerPosition;
 
+    public PromptManager promptManager;
+
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-
+           
         playerController = player.GetComponent<PlayerController>();
         playerPosition = player.transform;
     }
 
+    private void Start()
+    {
+        Debug.Log(promptManager);
+    }
 
     private void Update()
     {
         float distance = Vector3.Distance(playerPosition.position, interactionTransform.position);
         if (distance <= radius)
         {
+            promptManager.ShowPrompt(promptMessage);
             playerController.SetFocus(this);
         }
 
@@ -32,6 +40,7 @@ public class Interactable : MonoBehaviour
         {
             if (distance > radius)
             {
+                promptManager.ClosePrompt();
                 playerController.RemoveFocus();
             }
         }

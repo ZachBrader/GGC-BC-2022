@@ -1,6 +1,6 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
@@ -54,5 +54,19 @@ public class Inventory : MonoBehaviour
         }
 
         return removeSuccessful;
+    }
+
+    public bool RemoveKey()
+    {
+        foreach (Item item in items)
+        {
+            if (item.name == "Key")
+            {
+                Remove(item);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

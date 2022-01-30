@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
     {
         if (newFocus != focus)
         {
-            Debug.Log(focus == null);
             if (focus != null)
             {
                 RemoveFocus();

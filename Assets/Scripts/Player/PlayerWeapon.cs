@@ -17,7 +17,6 @@ public class PlayerWeapon : MonoBehaviour
         instance = this;
 
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(audioSource);
     }
     #endregion
 
