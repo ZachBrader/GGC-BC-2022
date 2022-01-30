@@ -20,6 +20,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private Inventory inventory;
     public Weapon[] currentWeapons;
+    public Weapon defaultMelee;
+    public Weapon defaultGun;
 
     public delegate void OnWeaponChanged(Weapon newItem, Weapon oldItem);
     public OnWeaponChanged onWeaponChanged;
@@ -30,6 +32,10 @@ public class PlayerWeapon : MonoBehaviour
         int numSlots = System.Enum.GetNames(typeof(WeaponSlot)).Length;
         currentWeapons = new Weapon[numSlots];
         inventory = Inventory.instance;
+
+        // Equip defaults
+        Equip(defaultMelee);
+        Equip(defaultGun);
     }
 
     public void Equip(Weapon newItem)
@@ -46,10 +52,7 @@ public class PlayerWeapon : MonoBehaviour
         currentWeapons[slotIndex] = newItem;
 
         // Update UI
-        if (onWeaponChanged != null)
-        {
-            onWeaponChanged.Invoke(newItem, oldItem);
-        }
+        onWeaponChanged?.Invoke(newItem, oldItem);
     }
 
     // Remove an item from player's weapons and add to inventory 
@@ -60,14 +63,18 @@ public class PlayerWeapon : MonoBehaviour
             Weapon oldItem = currentWeapons[slotIndex];
             inventory.Add(oldItem);
             
-            currentWeapons[slotIndex] = null;
+            if (slotIndex == 0)
+            {
+                currentWeapons[slotIndex] = defaultMelee;
+            }
+            else if (slotIndex == 1)
+            {
+                currentWeapons[slotIndex] = defaultGun;
+            }
+            
 
             // Update UI
-            if (onWeaponChanged != null)
-            {
-                Debug.Log("Unequip Change");
-                onWeaponChanged.Invoke(null, oldItem);
-            }
+            onWeaponChanged?.Invoke(null, oldItem);
         }
     }
 

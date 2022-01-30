@@ -71,14 +71,14 @@ public class PlayerAttack : MonoBehaviour
         Weapon ranged = playerWeapon.currentWeapons[1];
 
         // Create bullet
-        GameObject nBullet = Instantiate(bullet, firingPoint.position, firingPoint.rotation) as GameObject;
+        GameObject nBullet = Instantiate(bullet, firingPoint.position, transform.rotation) as GameObject;
         Rigidbody nBulletRigidbody = nBullet.GetComponent<Rigidbody>();
 
         // Assign damage
         nBullet.GetComponent<Bullet>().attackDamage = ranged.DamageModifier;
 
         // Shoot bullet
-        nBulletRigidbody.AddForce(Vector3.forward * bulletSpeed, ForceMode.Impulse);
+        nBulletRigidbody.velocity = transform.TransformDirection(Vector3.forward * bulletSpeed);
     }
 
     private void OnDrawGizmosSelected()

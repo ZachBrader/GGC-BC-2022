@@ -23,7 +23,6 @@ public class PlayerHealthUI : MonoBehaviour
     // Updates UI so player can see what items they have
     void UpdateUI()
     {
-        Debug.Log("Updating Player Health!");
         for (int i = 0; i < playerHealth.MAX_HEALTH; i++)
         {
             if (i < playerHealth.health)

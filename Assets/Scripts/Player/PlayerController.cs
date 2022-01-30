@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb; // Reference to player's rigidbody'
     private float horizontalInput; // Left Right
     private float forwardInput; // Forward Backward
+    private Ray mousePos;
 
 
 
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
+
+        mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetKeyDown(KeyCode.P) && focus != null)
         {
@@ -41,6 +44,15 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 500))
+        {
+            this.gameObject.transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+        }
     }
 
     void OnCollisionEnter(Collision collision)

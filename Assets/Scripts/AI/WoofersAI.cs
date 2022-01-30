@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class WoofersAI : MonoBehaviour
 {
-    [Tooltip("A list of Transfroms from the scene. " +
+    [Tooltip("A list of Transforms from the scene. " +
         "The AI's default behavior is to make its way from point to point as a sort of patrol. " +
         "The points that the AI tries to get to are listed here.")]
     [SerializeField]

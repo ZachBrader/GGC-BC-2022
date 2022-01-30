@@ -7,14 +7,14 @@ public class Weapon : Item
     public float range = 15f; // Distance of weapon
     public float fireRate = 1f; // Time between swings
     public WeaponSlot weaponType; // Weapon Type
-    public bool isEquipped = false;
+    public bool isNotEquipped = true;
 
     // When you click on the inventory slot
     public override void Use()
     {
-        if (!isEquipped)
+        if (isNotEquipped)
         {
-            isEquipped = true;
+            isNotEquipped = false;
             base.Use();
 
             PlayerWeapon.instance.Equip(this);

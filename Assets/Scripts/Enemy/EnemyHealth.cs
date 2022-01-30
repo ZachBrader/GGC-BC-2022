@@ -5,12 +5,17 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 10;
+    ItemDrop itemDrop;
+
+    private void Start()
+    {
+        itemDrop = GetComponent<ItemDrop>();
+    }
 
     public void TakeDamage(int damage)
     {
         // Enemy looses health
         health -= damage;
-        Debug.Log(health);
 
         // Check if enemy has died
         if (health <= 0)
@@ -21,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
     void EnemyDeath()
     {
+        itemDrop.DropItem();
         Destroy(gameObject);
     }
 }
