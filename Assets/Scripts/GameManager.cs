@@ -1,5 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,15 +23,21 @@ public class GameManager : MonoBehaviour
     // Public
     public float restartDelay = 7f; // Delay before restarting game
     public GameObject completeLevelUI; // Reference to UI element for selecting next level
-    
+   
+
     // Private
     private bool gameHasEnded = false; // Keeps track of if the game has ended
 
     // Logic for when player finishes level
     public void CompleteLevel() 
     {
-        Debug.Log("Level over!");
-        // completeLevelUI.SetActive(true);
+        if (!gameHasEnded)
+        {
+            Debug.Log("Level over!");
+            // completeLevelUI.SetActive(true);
+            gameHasEnded = true;
+        }
+        
     }
 
     // Restarts current level

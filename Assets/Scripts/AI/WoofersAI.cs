@@ -30,6 +30,7 @@ public class WoofersAI : MonoBehaviour
     //Player detection vars
     private bool canSeePlayer = false;
     private bool playerDetected = false;
+    private bool playerDetectedLastFrame = false;
     [Tooltip("What layer is the player on?")]
     [SerializeField]
     private LayerMask playerDetectionMask;
@@ -54,6 +55,10 @@ public class WoofersAI : MonoBehaviour
     [SerializeField]
     private GameObject attackHolder;
     private AttackType attack;
+
+    //Sound Effects
+    private AudioClip sensePlayerSound;
+
 
     //The NavMesh Agent attached to the AI
     private NavMeshAgent agent;
@@ -81,6 +86,8 @@ public class WoofersAI : MonoBehaviour
         {
             Patrol();
         }
+
+        
     }
 
     //damage player if they touch the AI
@@ -141,6 +148,7 @@ public class WoofersAI : MonoBehaviour
         if (distance <= noFOVDetectionDistance)
         {
             playerDetected = true;
+
             return;
         }
         //If the player is far enough away, drop detection

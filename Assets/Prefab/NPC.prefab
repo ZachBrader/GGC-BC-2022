@@ -113,6 +113,7 @@ MonoBehaviour:
   radius: 3
   interactionTransform: {fileID: 7630648256958514917}
   canInteract: 0
+  promptMessage: Press 'P' to interact
   dialogue:
     name: Rover
     sentences:
