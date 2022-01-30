@@ -56,10 +56,17 @@ public class WoofersAI : MonoBehaviour
     private GameObject attackHolder;
     private AttackType attack;
 
+    private AudioSource audio;
+
     //Sound Effects
-    private AudioClip sensePlayerSound;
-
-
+    [SerializeField]
+    private AudioClip playerDetectedSound;
+    [SerializeField]
+    private AudioClip patrolSound;
+    [SerializeField]
+    private float timeBetweenPatrolSoundPlaying;
+    private float timeSinceLastPatrolSound = 0;
+    
     //The NavMesh Agent attached to the AI
     private NavMeshAgent agent;
 
@@ -69,6 +76,7 @@ public class WoofersAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         patrolPoints.resetCurrentIndex();
         attack = attackHolder.GetComponent<AttackType>();
+        audio = GetComponentInParent<AudioSource>();
 
         StartCoroutine(FOVRoutine());
         StartCoroutine(PlayerDetectedRoutine());
@@ -79,15 +87,31 @@ public class WoofersAI : MonoBehaviour
     {
         if(playerDetected)
         {
+            if (playerDetectedLastFrame != playerDetected)
+            {
+                //if this is the first frame of the player being detected
+                //play audio
+                audio.clip = playerDetectedSound;
+                audio.Play();
+            }
             agent.ResetPath();
             attack.Attack(gameObject);
         }
         else
         {
             Patrol();
+
+            //play audio every so often
+            if (timeSinceLastPatrolSound >= timeBetweenPatrolSoundPlaying)
+            {
+                AudioHelper.PlayIfNotPlaying(audio, patrolSound);
+                timeSinceLastPatrolSound = 0;
+
+            }
         }
 
-        
+        playerDetectedLastFrame = playerDetected;
+        timeSinceLastPatrolSound += Time.deltaTime;
     }
 
     //damage player if they touch the AI

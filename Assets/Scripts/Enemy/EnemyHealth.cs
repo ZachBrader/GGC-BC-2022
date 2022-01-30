@@ -11,6 +11,10 @@ public class EnemyHealth : MonoBehaviour
     public float blinkFrequency;
     private float timeLastDamaged;
 
+    public AudioClip onDamagedSound;
+    public AudioClip onDeathSound;
+
+    private AudioSource audio;
 
     ItemDrop itemDrop;
 
@@ -18,13 +22,14 @@ public class EnemyHealth : MonoBehaviour
     {
         itemDrop = GetComponent<ItemDrop>();
         timeLastDamaged = Time.time - immunityTime - 1; //offset -- enemy immedeately immune
+        audio = GetComponentInParent<AudioSource>();
     }
 
     public void TakeDamage(int damage)
     {
         if (!IsDamageable())
         {
-            Debug.Log("Post damage enemy immunity");
+            Debug.Log("Post-damage enemy immunity");
             return;
         }
 
@@ -35,17 +40,26 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             EnemyDeath();
+
         }
         else
         {
             //enemy has taken damage, but isn't dead
             timeLastDamaged = Time.time;
             StartCoroutine(BlinkRoutine());
+
+            //handle audio
+            audio.clip = onDamagedSound;
+            audio.Play();
         }
     }
 
     void EnemyDeath()
     {
+        //handle audio
+        audio.clip = onDeathSound;
+        audio.Play();
+
         itemDrop.DropItem();
         Destroy(gameObject);
     }
