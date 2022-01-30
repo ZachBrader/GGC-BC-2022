@@ -15,4 +15,9 @@ public class TestAttack : MonoBehaviour, AttackType
     {
         Debug.Log("AI wants to do damage to " + target.name);
     }
+
+    public void ResetTimeSinceLastAttack()
+    {
+        Debug.Log("AI wants to reset timeSinceLastAttack value");
+    }
 }

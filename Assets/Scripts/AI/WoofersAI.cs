@@ -86,14 +86,12 @@ public class WoofersAI : MonoBehaviour
     //damage player if they touch the AI
     private void OnTriggerEnter(Collider other)
     {
-        //check if other collider is player. If so, do damage
+        //check if other is player. If so, do damage
         if (other.tag.Equals("Player"))
         {
             attack.DoDamage(other.gameObject);
         }
     }
-
-
 
     void Patrol()
     {
@@ -149,6 +147,7 @@ public class WoofersAI : MonoBehaviour
         else if (distance >= dropDetectionDistance)
         {
             playerDetected = false;
+            attack.ResetTimeSinceLastAttack();
             return;
         }
     }
@@ -166,6 +165,7 @@ public class WoofersAI : MonoBehaviour
         }
     }
 
+    //Check the FOV 
     private void CheckFOV()
     {
         //Draw debugger rays to show fov
