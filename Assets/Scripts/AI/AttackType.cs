@@ -6,4 +6,5 @@ using UnityEngine;
 public interface AttackType
 {
     public void Attack(GameObject attacker);
+    void DoDamage(GameObject target);
 }

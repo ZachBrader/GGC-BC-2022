@@ -81,7 +81,16 @@ public class WoofersAI : MonoBehaviour
         {
             Patrol();
         }
+    }
 
+    //damage player if they touch the AI
+    private void OnTriggerEnter(Collider other)
+    {
+        //check if other collider is player. If so, do damage
+        if (other.tag.Equals("Player"))
+        {
+            attack.DoDamage(other.gameObject);
+        }
     }
 
 
