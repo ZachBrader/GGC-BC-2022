@@ -204,6 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 9
   MAX_HEALTH: 9
+  invincibilityTime: 0
+  blinkFrequency: 0
 --- !u!82 &2590341869195073549
 AudioSource:
   m_ObjectHideFlags: 0

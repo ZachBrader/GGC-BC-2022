@@ -6,6 +6,7 @@ public class ChestInteract : Interactable
 {
     // Private
     AudioSource audioSource;
+    Animator animator;
     
     // Public
     public Item item;
@@ -13,6 +14,7 @@ public class ChestInteract : Interactable
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     public override void Interact()
@@ -26,13 +28,17 @@ public class ChestInteract : Interactable
 
     void Pickup()
     {
+        // Play Animation
+        animator.Play("Chest Open");
+
         // Add Item to inventory
         bool wasPickedUp = Inventory.instance.Add(item);
 
         // Destroy if item was picked up
         if (wasPickedUp)
         {
-            Destroy(this.gameObject);
+            this.enabled = false;
+            Destroy(this.gameObject, 1f);
         }
 
     }

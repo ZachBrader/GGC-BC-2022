@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2543673160111394917}
   - component: {fileID: 2543673160111394916}
   - component: {fileID: 8358827607338305099}
+  - component: {fileID: 3867166739727902904}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2543673160111394921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.5, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51,7 +52,6 @@ MonoBehaviour:
   interactionTransform: {fileID: 2543673160111394917}
   canInteract: 0
   promptMessage: Press 'P' to open
-  promptManager: {fileID: 0}
   item: {fileID: 11400000, guid: b0bbed6c3605b574686dccb1ed9a8b4c, type: 2}
 --- !u!82 &8358827607338305099
 AudioSource:
@@ -149,6 +149,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3867166739727902904
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543673160111394921}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3632613e53ae63d40b76a80b1568f217, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7329637748461538976
 GameObject:
   m_ObjectHideFlags: 0

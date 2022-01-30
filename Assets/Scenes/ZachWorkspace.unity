@@ -2124,6 +2124,7 @@ Transform:
   - {fileID: 8250953824848869173}
   - {fileID: 423958805373231180}
   - {fileID: 2040962070}
+  - {fileID: 2042561897}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3914,6 +3915,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &2042561896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1076324876}
+    m_Modifications:
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543673160111394921, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_Name
+      value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599752397321138285, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599752397321138285, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+--- !u!4 &2042561897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
+  m_PrefabInstance: {fileID: 2042561896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2146339543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4317,10 +4380,10 @@ MonoBehaviour:
   canInteract: 0
   promptMessage: Press 'P' to interact
   dialogue:
-    name: Rover
     sentences:
     - Hello, I am rover
     - What would you like to buy?
+    characters: []
 --- !u!1001 &5500543749058679591
 PrefabInstance:
   m_ObjectHideFlags: 0
