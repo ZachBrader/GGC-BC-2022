@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3516107432149490343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.98, y: 2.18, z: -10.21}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3712536868501209961}
@@ -40,7 +40,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3516107432149490343}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -181,10 +181,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: bee2010ddbde34343806e9aa6625dd26, type: 3}
     - target: {fileID: 436160044198122586, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
-      propertyPath: visionObstructionMask.m_Bits
-      value: 247
-      objectReference: {fileID: 0}
-    - target: {fileID: 436160044198122586, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
       propertyPath: timeBetweenPatrolSoundPlaying
       value: 5
       objectReference: {fileID: 0}
@@ -256,6 +252,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoofersAI Charge
       objectReference: {fileID: 0}
+    - target: {fileID: 5313031920878138341, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313031920878138341, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313031920878138341, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6900586320731793724, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
       propertyPath: onDeathSound
       value: 
@@ -264,6 +272,10 @@ PrefabInstance:
       propertyPath: onDamagedSound
       value: 
       objectReference: {fileID: 8300000, guid: bdf363059c2d57a43b28c3e086e7ac64, type: 3}
+    - target: {fileID: 7169622770920314365, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a82b14200fd8cd45a4132a587f2a876, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
 --- !u!4 &3712536868501209961 stripped

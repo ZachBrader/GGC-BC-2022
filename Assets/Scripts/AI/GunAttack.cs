@@ -63,7 +63,7 @@ public class GunAttack : MonoBehaviour, AttackType
             //do attack
             if (timeSinceLastShot >= timeBetweenShots)
             {
-                GameObject spawnedBullet = Instantiate(bullet, transform);
+                GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
                 //rotate bullet by random ammount within bulletSpread
                 spawnedBullet.transform.Rotate(new Vector3(0,Random.Range(bulletSpread/2, -bulletSpread/2), 0));
                 spawnedBullet.transform.parent = null; //Make bullets not have a parent

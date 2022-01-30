@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2590341869195073549}
   - component: {fileID: 7003484749167989673}
   - component: {fileID: 405770833678436521}
+  - component: {fileID: 4017961854885221262}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -204,6 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 9
   MAX_HEALTH: 9
+  invincibilityTime: 0
+  blinkFrequency: 0
 --- !u!82 &2590341869195073549
 AudioSource:
   m_ObjectHideFlags: 0
@@ -338,6 +341,14 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &4017961854885221262
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329499628904713043}
+  m_Enabled: 1
 --- !u!1 &3713407267943130729
 GameObject:
   m_ObjectHideFlags: 0
