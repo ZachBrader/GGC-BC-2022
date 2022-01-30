@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Interactable focus;
     public float speed = 20f; // Speed of player
 
+    private CharacterController controller;
+
     // Private
     private Rigidbody rb; // Reference to player's rigidbody'
     private float horizontalInput; // Left Right
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>(); // Assign rigidbody
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -41,8 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        Vector3 moveVect = (Vector3.forward * forwardInput + Vector3.right * horizontalInput) * speed;
+        controller.SimpleMove(moveVect);
 
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
