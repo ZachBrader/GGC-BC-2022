@@ -1,6 +1,6 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
@@ -44,13 +44,29 @@ public class Inventory : MonoBehaviour
     }
 
     // Remove an item from the inventory
-    public void Remove(Item item)
+    public bool Remove(Item item)
     {
-        items.Remove(item);
+        bool removeSuccessful = items.Remove(item);
 
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
         }
+
+        return removeSuccessful;
+    }
+
+    public bool RemoveKey()
+    {
+        foreach (Item item in items)
+        {
+            if (item.name == "Key")
+            {
+                Remove(item);
+                return true;
+            }
+        }
+
+        return false;
     }
 }

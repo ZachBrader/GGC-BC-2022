@@ -22,31 +22,31 @@ public class PlayerAttack : MonoBehaviour
         {
             firingPoint = transform;
         }
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // Player Clicks button to shoot
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
-            // if (playerWeapon.currentWeapons[1])
-            {
-                //Melee();
-                Shoot();
-            }
+            Shoot();
         }
-        
 
-        // If gun,
-        // Player will shoot
-
-        // If melee,
-        // Player will swing
+        if (Input.GetMouseButtonDown(1))
+        {
+            Melee();
+        }
     }
 
     void Melee()
     {
+        Debug.Log("Melee");
+        // Play melee animation
+        animator.Play("PlayerMelee");
+        
         // Check current weapon
         Weapon melee = playerWeapon.currentWeapons[0];
 
@@ -67,6 +67,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Shoot()
     {
+        Debug.Log("Range");
         // Check current weapon
         Weapon ranged = playerWeapon.currentWeapons[1];
 
