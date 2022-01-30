@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
         {
             firingPoint = transform;
         }
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,9 @@ public class PlayerAttack : MonoBehaviour
     void Melee()
     {
         Debug.Log("Melee");
+        // Play melee animation
+        animator.Play("PlayerMelee");
+        
         // Check current weapon
         Weapon melee = playerWeapon.currentWeapons[0];
 

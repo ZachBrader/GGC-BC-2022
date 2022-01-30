@@ -12,8 +12,6 @@ public class Interactable : MonoBehaviour
     protected PlayerController playerController;
     protected Transform playerPosition;
 
-    public PromptManager promptManager;
-
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -22,17 +20,12 @@ public class Interactable : MonoBehaviour
         playerPosition = player.transform;
     }
 
-    private void Start()
-    {
-        Debug.Log(promptManager);
-    }
-
     private void Update()
     {
         float distance = Vector3.Distance(playerPosition.position, interactionTransform.position);
         if (distance <= radius)
         {
-            promptManager.ShowPrompt(promptMessage);
+            PromptManager.instance?.ShowPrompt(promptMessage);
             playerController.SetFocus(this);
         }
 
@@ -40,7 +33,7 @@ public class Interactable : MonoBehaviour
         {
             if (distance > radius)
             {
-                promptManager.ClosePrompt();
+                PromptManager.instance?.ClosePrompt();
                 playerController.RemoveFocus();
             }
         }

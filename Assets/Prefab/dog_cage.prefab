@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Key Required
-  puppyPrefab: {fileID: 7243447111081180009, guid: 36cc93b261917dd43ba040dc24973554, type: 3}
+  puppyPrefab: {fileID: 4929786676920554040, guid: ddd66a97e0cd31444910df91cd07f0f5, type: 3}
   radius: 3
   interactionTransform: {fileID: 6804915627695595376}
   canInteract: 0
