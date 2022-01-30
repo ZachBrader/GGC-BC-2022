@@ -25,12 +25,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == targetTag)
+        if (other.transform.tag == targetTag)
         {
-            Debug.Log("Hit " + collision.transform.name);
-            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            Debug.Log("Hit " + other.transform.name);
+            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(attackDamage);
         }
 

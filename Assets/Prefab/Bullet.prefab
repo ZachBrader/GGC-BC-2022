@@ -189,7 +189,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177115547561540453}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -223,5 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e173f50e4963cf8499b2ba22b3af7943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 1
   timeTillDespawn: 5
   targetTag: Enemy
