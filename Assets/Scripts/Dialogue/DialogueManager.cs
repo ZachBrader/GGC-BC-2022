@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
+    private Queue<string> charactersSpeaking;
     private Queue<string> sentences;
 
     public TMP_Text charNameText;
@@ -30,13 +31,12 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        charactersSpeaking = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         dialogueParent.SetActive(true); // Turn on the dialogue panel
-        charNameText.text = dialogue.name;
-
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -44,11 +44,17 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        foreach (string character in dialogue.characters)
+        {
+            charactersSpeaking.Enqueue(character);
+        }
+
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
+        
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -56,6 +62,8 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+        string charName = charactersSpeaking.Dequeue();
+        charNameText.text = charName;
         dialogueText.text = sentence;
     }
 

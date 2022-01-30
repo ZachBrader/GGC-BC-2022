@@ -15,6 +15,5 @@ public class DialogueTriggerMenu : MonoBehaviour
     public void TriggerDialogue()
     {
         dialogueManager.StartDialogue(dialogue);
-
     }
 }
