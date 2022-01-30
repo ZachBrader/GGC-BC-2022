@@ -21,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     public int health = 9;
     public int MAX_HEALTH = 9;
 
+    private bool isDead = false;
+
     private AudioSource audioSource;
     private GameManager gameManager;
 
@@ -35,22 +37,47 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // Enemy looses health
-        health -= damage;
+        if (!isDead)
+        {
+            // Player looses health
+            health -= damage;
 
-        // Update Health Bar
-        onHealthChanged?.Invoke();
+            // Update Health Bar
+            onHealthChanged?.Invoke();
         
 
-        // Check if enemy has died
-        /*if (health <= 0)
+            // Check if enemy has died
+            if (health <= 0)
+            {
+                PlayerDeath();
+            }
+        }
+    }
+
+    public void GainHealth(int heal)
+    {
+        if (!isDead)
         {
-            PlayerDeath();
-        }*/
+            // Lock health based on MAX_HEALTH
+            if (health + heal <= MAX_HEALTH)
+            {
+                // Player gains health
+                health += heal;
+
+                // Update Health Bar
+                onHealthChanged?.Invoke();
+            }
+            else
+            {
+                health = MAX_HEALTH;
+            }
+            
+        }
     }
     
     void PlayerDeath()
     {
+        isDead = true;
         //Debug.Log("Player has died");
 
         // Play Player Death Sound
