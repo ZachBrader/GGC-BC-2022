@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4810776780353667387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.2714205, y: 0, z: -9.3899145}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc18c1644179fd64aa4349c13443d563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 30
   interactionTransform: {fileID: 9078209900036253264}
   canInteract: 0
   promptMessage: Press 'P' to pick up Large Health Kit

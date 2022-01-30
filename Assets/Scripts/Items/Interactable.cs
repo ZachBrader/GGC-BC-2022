@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float radius = 3f; // How close player needs to be to object
+    public float radius = 30f; // How close player needs to be to object
     public Transform interactionTransform;
 
     public bool canInteract = false;
