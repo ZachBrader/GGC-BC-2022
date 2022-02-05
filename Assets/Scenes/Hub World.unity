@@ -4192,6 +4192,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6804915627695595376, guid: 4c562d69688735a458de080fed7216b5, type: 3}
   m_PrefabInstance: {fileID: 2031289677}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &994938939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 446894341728241641, guid: 4c562d69688735a458de080fed7216b5, type: 3}
+  m_PrefabInstance: {fileID: 2031289677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80959798e1dc1834080acdd67e397c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1058845355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5860,11 +5871,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6804915627695595376, guid: 4c562d69688735a458de080fed7216b5, type: 3}
   m_PrefabInstance: {fileID: 1695023538}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1493390478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 446894341728241641, guid: 4c562d69688735a458de080fed7216b5, type: 3}
+  m_PrefabInstance: {fileID: 1695023538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80959798e1dc1834080acdd67e397c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1548124357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6804915627695595376, guid: 4c562d69688735a458de080fed7216b5, type: 3}
   m_PrefabInstance: {fileID: 252844246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1548124358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 446894341728241641, guid: 4c562d69688735a458de080fed7216b5, type: 3}
+  m_PrefabInstance: {fileID: 252844246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80959798e1dc1834080acdd67e397c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1565795211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2543673160111394917, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
@@ -6099,7 +6132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dogCages:
+  - {fileID: 1548124358}
+  - {fileID: 994938939}
   - {fileID: 676639850}
+  - {fileID: 1493390478}
 --- !u!114 &1644716280
 MonoBehaviour:
   m_ObjectHideFlags: 0
