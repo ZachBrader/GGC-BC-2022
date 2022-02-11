@@ -26,6 +26,7 @@ public class PromptManager : MonoBehaviour
 
     public void ShowPrompt(string nPrompt)
     {
+        Debug.Log("Showing prompt");
         promptParent.SetActive(true);
         promptText.text = nPrompt;
     }

@@ -10,9 +10,15 @@ public class ItemPickup : Interactable
     // Public
     public Item item;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         audioSource = GetComponent<AudioSource>();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 
     public override void Interact()

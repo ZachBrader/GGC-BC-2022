@@ -11,10 +11,20 @@ public class ChestInteract : Interactable
     // Public
     public Item item;
 
-    private void Start()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 
     public override void Interact()
