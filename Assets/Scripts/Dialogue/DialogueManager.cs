@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text charNameText;
     public TMP_Text dialogueText;
 
+    public Animator anim;
+
     public GameObject dialogueParent;
 
 
@@ -36,7 +38,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        dialogueParent.SetActive(true); // Turn on the dialogue panel
+        anim.SetBool("isOpen", true);
+
+        // dialogueParent.SetActive(true); // Turn on the dialogue panel
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -71,6 +75,12 @@ public class DialogueManager : MonoBehaviour
     {
         charNameText.text = "";
         dialogueText.text = "";
-        dialogueParent.SetActive(false); // Turn off the dialogue
+        anim.SetBool("isOpen", false);
+        // dialogueParent.SetActive(false); // Turn off the dialogue
+    }
+
+    public bool getIsOpen()
+    {
+        return anim.GetBool("isOpen");
     }
 }

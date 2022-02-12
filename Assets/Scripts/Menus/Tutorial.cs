@@ -18,10 +18,13 @@ public class Tutorial : MonoBehaviour
     private int curDialogue = 0;
     private DialogueTriggerMenu[] dialogueTriggers;
 
+    private DialogueManager dialogueManager;
+
     // Start is called before the first frame update
     void Start()
     {
         dialogueTriggers = dialogueTriggerParent.GetComponentsInChildren<DialogueTriggerMenu>();
+        dialogueManager = DialogueManager.instance;
     }
 
     // Update is called once per frame
@@ -57,10 +60,9 @@ public class Tutorial : MonoBehaviour
             tutorialUIParent.gameObject.SetActive(true);
         }
 
-        if (dialogueParent.gameObject.activeSelf == false)
+        if (!dialogueManager.getIsOpen())
         {
             TriggerDialogue();
-            OpenDialogue();
         }
     }
 
@@ -85,16 +87,6 @@ public class Tutorial : MonoBehaviour
     public void CloseStartTutorialButton()
     {
         startTutorialButton.gameObject.SetActive(false);
-    }
-
-    public void OpenDialogue()
-    {
-        dialogueParent.gameObject.SetActive(true);
-    }
-
-    public void CloseDialogue()
-    {
-        dialogueParent.gameObject.SetActive(false);
     }
 
     public void OpenPlayerOption()
