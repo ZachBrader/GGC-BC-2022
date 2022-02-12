@@ -48,6 +48,8 @@ public class ChestInteract : Interactable
         if (wasPickedUp)
         {
             this.enabled = false;
+            promptManager?.ClosePrompt();
+            playerController.RemoveFocus();
             Destroy(this.gameObject, 1f);
         }
 

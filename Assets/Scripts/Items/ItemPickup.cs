@@ -38,6 +38,8 @@ public class ItemPickup : Interactable
         // Destroy if item was picked up
         if (wasPickedUp)
         {
+            promptManager?.ClosePrompt();
+            playerController.RemoveFocus();
             Destroy(this.gameObject);
         }
 

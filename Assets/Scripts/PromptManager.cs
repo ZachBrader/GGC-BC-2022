@@ -23,7 +23,6 @@ public class PromptManager : MonoBehaviour
     public TMP_Text promptText;
     public GameObject promptParent;
 
-
     public void ShowPrompt(string nPrompt)
     {
         Debug.Log("Showing prompt");
@@ -34,5 +33,11 @@ public class PromptManager : MonoBehaviour
     public void ClosePrompt()
     {
         promptParent.SetActive(false);
+    }
+
+
+    public string GetCurrentPrompt()
+    {
+        return promptText.text;
     }
 }

@@ -19,14 +19,7 @@ public class Interactable : MonoBehaviour
            
         playerController = player.GetComponent<PlayerController>();
         playerPosition = player.transform;
-
-        Debug.Log(PromptManager.instance);
-        Debug.Log("This is what we are assigning");
         promptManager = PromptManager.instance;
-
-        Debug.Log(promptManager);
-
-        Debug.Log("Awoken interactable object");
     }
 
     protected virtual void Update()
@@ -34,7 +27,11 @@ public class Interactable : MonoBehaviour
         float distance = Vector3.Distance(playerPosition.position, interactionTransform.position);
         if (distance <= radius)
         {
-            promptManager?.ShowPrompt(promptMessage);
+            if (promptManager.GetCurrentPrompt() != promptMessage)
+            {
+                promptManager?.ShowPrompt(promptMessage);
+            }
+            
             playerController.SetFocus(this);
         }
 

@@ -2,68 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogCage : MonoBehaviour
+public class DogCage : Interactable
 {
     // Private
     AudioSource audioSource;
     GoalManager goalManager;
     Inventory inventory;
-    bool hasInteracted = false;
-
-    PlayerController playerController;
-    Transform playerPosition;
-    PromptManager promptManager;
 
     // Public
-    public string promptMessage = "Key Required";
     public GameObject puppyPrefab;
-    public float radius = 30f; // How close player needs to be to object
-    public Transform interactionTransform;
 
-    public bool canInteract = false;
-
-    private void Start()
+    private void Awake()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        playerController = player.GetComponent<PlayerController>();
-        playerPosition = player.transform;
-
-        promptManager = PromptManager.instance;
         goalManager = GoalManager.instance;
         audioSource = GetComponent<AudioSource>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
         inventory = Inventory.instance;
     }
 
-    private void Update()
+    protected override void Update()
     {
-        float distance = Vector3.Distance(playerPosition.position, interactionTransform.position);
-        if (distance <= radius)
-        {
-            Debug.Log("Use a key");
-            promptManager?.ShowPrompt(promptMessage);
-            Unlock();
-        }
-        else
-        {
-            promptManager?.ClosePrompt();
-        }
+        base.Update();
+    }
 
+    public override void Interact()
+    {
+        base.Interact();
+
+        Unlock();
     }
 
     void Unlock()
     {
-        if (!hasInteracted)
+        Debug.Log("Unlock");
+        Debug.Log(inventory);
+        if (inventory.RemoveKey())
         {
-            if (inventory.RemoveKey())
-            {
-                Instantiate(puppyPrefab, transform.position, transform.rotation);
+            Debug.Log("Puppy is free");
+            Instantiate(puppyPrefab, transform.position, transform.rotation);
 
-                goalManager.dogCages.Remove(this);
-                hasInteracted = true;
-                promptManager?.ClosePrompt();
-                Destroy(gameObject);
-            }
+            goalManager?.dogCages.Remove(this);
+            hasInteracted = true;
+            promptManager?.ClosePrompt();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Cannot remove key");
         }
     }
 

@@ -7,10 +7,17 @@ public class DialogueTrigger : Interactable
     public Dialogue dialogue; // Text to print out
     private DialogueManager dialogueManager; // Reference to dialogue manager
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         dialogueManager = DialogueManager.instance;
     }
+
+    protected override void Update()
+    {
+        base.Update();
+    }
+
 
     public override bool OnInteract()
     {
