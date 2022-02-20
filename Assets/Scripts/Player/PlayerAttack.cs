@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Transform firingPoint; 
+    // Ranged Weapon Variables
+    public Transform firingPoint; // Used by weapons to determine where to attack 
     public GameObject bullet;
     public float bulletSpeed;
 
@@ -16,6 +17,10 @@ public class PlayerAttack : MonoBehaviour
 
     public AudioClip onAttackAudio;
     private AudioSource source;
+
+    public float meleeSwingTime = 10f;
+    private bool isSwingingMelee = false;
+    private float meleeSwingCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +38,26 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Prevent user from attacking again while melee is occuring
+        if (isSwingingMelee)
+        {
+            if (Time.time >= meleeSwingCounter)
+            {
+                isSwingingMelee = false;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         // Player Clicks button to shoot
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Melee();
         }
@@ -47,12 +65,13 @@ public class PlayerAttack : MonoBehaviour
 
     void Melee()
     {
-        Debug.Log("Melee");
-
-
-
         // Play melee animation
         animator.Play("PlayerMelee");
+
+        // Set counter for melee attack
+        meleeSwingCounter = meleeSwingTime + Time.time;
+        isSwingingMelee = true;
+
         
         // Check current weapon
         Weapon melee = playerWeapon.currentWeapons[0];

@@ -135,8 +135,6 @@ public class WoofersAI : MonoBehaviour
         }
 
         //distance to objective
-        Debug.Log(patrolPoints);
-        Debug.Log(patrolPoints.Current());
         float distance = Vector3.Distance(patrolPoints.Current().position, transform.position);
 
         if (distance <= goodEnough)

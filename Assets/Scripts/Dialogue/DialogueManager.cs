@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        anim.SetBool("isOpen", true);
+        anim?.SetBool("isOpen", true);
 
         // dialogueParent.SetActive(true); // Turn on the dialogue panel
         sentences.Clear();

@@ -42,9 +42,6 @@ public class LoopingList<T>
     //Get the value in the current index
     public T Current()
     {
-        Debug.Log(currentIndex.ToString());
-        Debug.Log(list);
-        Debug.Log(list[currentIndex]);
         return list[currentIndex];
     }
 

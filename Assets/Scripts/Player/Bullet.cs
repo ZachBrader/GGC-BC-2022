@@ -27,11 +27,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == targetTag)
+
+        if (other.transform.tag != "Player")
         {
             Debug.Log("Hit " + other.transform.name);
-            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(attackDamage);
+            Health targetHealth = other.gameObject.GetComponent<Health>();
+            targetHealth?.TakeDamage(attackDamage);
         }
 
         Destroy(gameObject);

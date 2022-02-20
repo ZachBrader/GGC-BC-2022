@@ -20,7 +20,7 @@ public class PlayerHealthUI : MonoBehaviour
     // Updates UI so player can see what items they have
     void UpdateUI()
     {
-        for (int i = 0; i < playerHealth.MAX_HEALTH; i++)
+        for (int i = 0; i < PlayerHealth.MAX_HEALTH; i++)
         {
             if (i < playerHealth.health)
             {
