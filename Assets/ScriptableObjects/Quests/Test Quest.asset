@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4540959261548001568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e03f5d6e84b4167ad3299e17332f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredAmount: 1
+  isComplete: 0
+  enemies:
+  - {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e876913695ccd451f8979888f43f12f7, type: 3}
+  m_Name: Test Quest
+  m_EditorClassIdentifier: 
+  <isComplete>k__BackingField: 0
+  isPrimary: 0
+  goals:
+  - {fileID: -4540959261548001568}
+  information:
+    name: Quest
+    description: Do the thing
+  reward:
+    currencies: 10
+    xp: 10
+    test: 

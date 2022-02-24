@@ -12,6 +12,9 @@ public class EnemyHealth : Health
 
     ItemDrop itemDrop;
 
+    public delegate void OnEnemyDeath();
+    public OnEnemyDeath onEnemyDeath;
+
     protected override void Start()
     {
         base.Start();
@@ -41,7 +44,10 @@ public class EnemyHealth : Health
 
     protected override void OnDeath()
     {
+        Debug.Log("Enemy Time");
         base.OnDeath();
+
+        onEnemyDeath?.Invoke();
 
         //handle audio
         audio.clip = onDeathSound;

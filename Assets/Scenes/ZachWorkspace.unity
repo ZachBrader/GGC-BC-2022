@@ -191,6 +191,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4130190130869257235, guid: 8f46404cefb0743c78e41ce8b3bf2f70, type: 3}
+      propertyPath: quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130190130869257235, guid: 8f46404cefb0743c78e41ce8b3bf2f70, type: 3}
+      propertyPath: quests.Array.data[0].phases.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130190130869257235, guid: 8f46404cefb0743c78e41ce8b3bf2f70, type: 3}
+      propertyPath: quests.Array.data[0].phases.Array.data[0].objectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4390900407892675458, guid: 8f46404cefb0743c78e41ce8b3bf2f70, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -247,7 +259,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4130190130869257235, guid: 8f46404cefb0743c78e41ce8b3bf2f70, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8f46404cefb0743c78e41ce8b3bf2f70, type: 3}
 --- !u!1 &223600769
 GameObject:
@@ -915,11 +928,135 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1126869969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126869970}
+  - component: {fileID: 1126869972}
+  - component: {fileID: 1126869971}
+  m_Layer: 0
+  m_Name: Quest 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126869970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126869969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1381290627}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126869971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126869969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e03f5d6e84b4167ad3299e17332f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredAmount: 1
+  isComplete: 0
+  enemies:
+  - {fileID: 1358293773}
+--- !u!114 &1126869972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126869969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de55f12ca5fb45fe9d582ec94ae645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  information:
+    name: Quest
+    description: Do the thing
+  isPrimary: 0
+  goals:
+  - {fileID: 1126869971}
+--- !u!114 &1358293773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7659452062912544270, guid: 57916ee1f39ba2f419864353f988d23c, type: 3}
+  m_PrefabInstance: {fileID: 802644520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81dfe0601011c7419c4302375964c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1365880985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3329499628904712878, guid: a5b8c77b7a1fa3d4d9965bc8cfa4b030, type: 3}
   m_PrefabInstance: {fileID: 19107770}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1381290626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381290627}
+  - component: {fileID: 1381290628}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1381290627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381290626}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.348, y: 48.90223, z: 0.34370506}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1126869970}
+  m_Father: {fileID: 1365880985}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1381290628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381290626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd72a72b9d0834049834c13767f3d23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests: []
 --- !u!1001 &1403137698
 PrefabInstance:
   m_ObjectHideFlags: 0

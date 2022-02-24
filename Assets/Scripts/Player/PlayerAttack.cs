@@ -93,7 +93,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Range");
         // Check current weapon
         Weapon ranged = playerWeapon.currentWeapons[1];
 
