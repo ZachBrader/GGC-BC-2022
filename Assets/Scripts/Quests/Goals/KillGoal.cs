@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class KillGoal : Quest.Goal
 {
@@ -10,16 +8,31 @@ public class KillGoal : Quest.Goal
     {
         base.Initialize();
 
-        // Grab enemy healths
-        foreach (EnemyHealth enemy in enemies)
+        // Subscribe to enemy death event
+        EnemyHealth.onDeath += EnemyDied;
+    }
+
+    public void EnemyDied(EnemyHealth enemy)
+    {
+        // Check to see if this is the desired enemy
+        bool questEnemy = enemies.Remove(enemy);
+
+        // If enemy was the target
+        if (questEnemy)
         {
-            enemy.GetComponent<EnemyHealth>().onEnemyDeath += OnEnemyDeath;
+            // Increment values
+            currentAmount += 1;
+
+            // Check if quest is completed
+            Evaluate();
         }
     }
 
-    public void OnEnemyDeath()
+    public override void Complete()
     {
-        currentAmount += 1;
-        Evaluate();
+        base.Complete();
+
+        // Unsubscribe observer when goal is completed
+        EnemyHealth.onDeath -= EnemyDied;
     }
 }

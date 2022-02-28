@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : Health
 {
-
+    public static Action<EnemyHealth> onDeath;
     public AudioClip onDamagedSound;
     public AudioClip onDeathSound;
 
     private AudioSource audio;
 
     ItemDrop itemDrop;
-
-    public delegate void OnEnemyDeath();
-    public OnEnemyDeath onEnemyDeath;
 
     protected override void Start()
     {
@@ -44,10 +42,8 @@ public class EnemyHealth : Health
 
     protected override void OnDeath()
     {
-        Debug.Log("Enemy Time");
         base.OnDeath();
-
-        onEnemyDeath?.Invoke();
+        onDeath?.Invoke(this);
 
         //handle audio
         audio.clip = onDeathSound;

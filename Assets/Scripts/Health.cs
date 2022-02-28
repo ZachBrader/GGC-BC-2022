@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
     // Invincibility variables
     [Tooltip("How long should the player be invincible after taking damage?")]

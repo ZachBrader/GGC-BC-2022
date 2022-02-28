@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,17 +19,65 @@ public class QuestManager : MonoBehaviour
     }
     #endregion
 
-    public List<Quest> quests;
+    public int MAX_QUESTS = 5;
+    public List<Quest> activeQuests;
+    public List<Quest> completedQuests;
 
-    // Start is called before the first frame update
-    void Start()
+    public static event Action onQuestsChanged;
+
+    private void Start()
     {
-        quests = new List<Quest>();
+        Quest[] foundQuests = this.transform.GetComponentsInChildren<Quest>();
+
+        foreach (Quest quest in foundQuests)
+        {
+            Debug.Log(quest.information.name);
+            Debug.Log(AddActiveQuest(quest));
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool AddActiveQuest(Quest quest)
     {
-        
+        if (activeQuests.Count >= MAX_QUESTS)
+        {
+            return false;
+        }
+
+        activeQuests.Add(quest);
+
+        onQuestsChanged?.Invoke();
+
+        return true;
+    }
+
+    public bool RemoveActiveQuest(Quest quest)
+    {
+        bool removeQuest = activeQuests.Remove(quest);
+
+        onQuestsChanged?.Invoke();
+
+        return removeQuest;
+    }
+
+    public bool AddCompletedQuest(Quest quest)
+    {
+        activeQuests.Add(quest);
+        return true;
+    }
+
+    public bool FinishQuest(Quest quest)
+    {
+        // Ensure Quest exists in active list
+        bool isActiveQuest = activeQuests.Contains(quest);
+        if (!isActiveQuest)
+        {
+            return false;
+        }
+
+        // Remove from active list and add to completed list
+        bool success = RemoveActiveQuest(quest) && AddCompletedQuest(quest);
+
+        return success;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,14 +19,14 @@ public class Quest : MonoBehaviour
 
     public List<Goal> goals; // List of goals to complete quests
 
-    public delegate void OnQuestComplete();
-    public OnQuestComplete onQuestComplete;
+    public event Action onQuestComplete;
 
     // Initialize quest
     public void Start()
     {
         isComplete = false;
 
+        // Set up goals and subscribe
         foreach (Goal goal in goals)
         {
             goal.Initialize();
@@ -51,25 +51,40 @@ public class Quest : MonoBehaviour
 
         if (goalCheck)
         {
-            isComplete = true;
+            Complete();
+        }
+    }
 
-            onQuestComplete?.Invoke();
+    public void Complete()
+    {
+        // Mark quest complete
+        isComplete = true;
 
-            // Remove listerners
+        // Invoke subscribers
+        onQuestComplete?.Invoke();
+
+        // Remove listerners
+        foreach (Goal goal in goals)
+        {
+            goal.onGoalComplete -= CheckGoals;
         }
     }
 
     [System.Serializable]
     public abstract class Goal : MonoBehaviour 
     {
-        protected string description { get; set; } = "Default";
+        public string description = "Default";
         public int currentAmount { get; protected set; }
         public int requiredAmount = 1;
 
         public bool isComplete;
 
-        public delegate void OnGoalComplete();
-        public OnGoalComplete onGoalComplete;
+        public event Action onGoalComplete;
+
+        public virtual string GetDetails()
+        {
+            return description + " (" + currentAmount.ToString() + "/" + requiredAmount.ToString() + ")"; 
+        }
 
         public virtual void Initialize()
         {

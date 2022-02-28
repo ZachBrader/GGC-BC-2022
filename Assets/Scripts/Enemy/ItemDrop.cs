@@ -14,19 +14,13 @@ public class ItemDrop : MonoBehaviour
 
     public void DropItem()
     {
-        
+        // If no item has been dropped before
         if (!hasDroppedItem)
         {
             int randItem = Random.Range(0, itemsToDrop.Count);
 
             ChestInteract chest = Instantiate(chestPrefab, new Vector3(transform.position.x, 1, transform.position.z), transform.rotation).GetComponent<ChestInteract>();
             chest.item = itemsToDrop[randItem];
-            Debug.Log("Dropped an item!");
-            Debug.Log(chest.item);
-        }
-        else
-        {
-            Debug.Log("Did not drop an item");
         }
     }
 
