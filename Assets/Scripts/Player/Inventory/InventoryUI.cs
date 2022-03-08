@@ -5,16 +5,24 @@ public class InventoryUI : MonoBehaviour
     public Transform itemsParent; // Searches children for inventorySlot scripts
     public GameObject inventoryUI; // Uses this to toggle inventory on and off
 
-    Inventory inventory;
+    InventoryBehavior inventory;
     InventorySlot[] inventorySlots;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventory = Inventory.instance;
-        inventory.onItemChangedCallback += UpdateUI;
-
+        inventory = InventoryBehavior.instance;
         inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
+    }
+
+    private void OnEnable()
+    {
+        InventoryBehavior.onItemChangedCallback += UpdateUI;
+    }
+
+    private void OnDisable()
+    {
+        InventoryBehavior.onItemChangedCallback -= UpdateUI;
     }
 
     // Update is called once per frame
@@ -30,9 +38,9 @@ public class InventoryUI : MonoBehaviour
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
-            if (i < inventory.items.Count)
+            if (i < inventory.Items.Count)
             {
-                inventorySlots[i].AddItem(inventory.items[i]);
+                inventorySlots[i].AddItem(inventory.Items[i]);
             }
             else
             {

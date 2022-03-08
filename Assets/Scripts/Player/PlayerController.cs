@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     private float forwardInput; // Forward Backward
     private Ray mousePos;
 
-
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>(); // Assign rigidbody
@@ -42,11 +40,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Vector3 moveVect = (Vector3.forward * forwardInput + Vector3.right * horizontalInput) * speed;
-        controller.SimpleMove(moveVect);
-
+        Move(moveVect);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -55,6 +52,11 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
+    }
+
+    public void Move(Vector3 moveVect)
+    {
+        controller.SimpleMove(moveVect);
     }
 
     void OnCollisionEnter(Collision collision)

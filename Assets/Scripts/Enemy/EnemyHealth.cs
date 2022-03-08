@@ -9,7 +9,7 @@ public class EnemyHealth : Health
     public AudioClip onDamagedSound;
     public AudioClip onDeathSound;
 
-    private AudioSource audio;
+    private new AudioSource audio;
 
     ItemDrop itemDrop;
 

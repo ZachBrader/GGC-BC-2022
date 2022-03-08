@@ -13,8 +13,8 @@ public abstract class Health : MonoBehaviour
     private float timeSinceDamaged; // Time since the player was last damaged
 
     // Health variables
-    public static int MAX_HEALTH { get; } = 9;
-    public int health { get; set; } = MAX_HEALTH;
+    public const int MAX_HEALTH = 9;
+    public int health;
     protected bool isDead = false; // Determines if character is dead
 
     protected GameManager gameManager; // Reference to gamemanager
@@ -25,6 +25,8 @@ public abstract class Health : MonoBehaviour
 
         // Offset the initial value of timeSinceDamaged so that the player is immediately vulnerable
         timeSinceDamaged = invincibilityTime;
+
+        health = MAX_HEALTH;
     }
 
     protected virtual void Update()

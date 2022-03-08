@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2543673160111394917}
-  - component: {fileID: 2543673160111394916}
   - component: {fileID: 8358827607338305099}
   - component: {fileID: 3867166739727902904}
+  - component: {fileID: 7290737474554495695}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -36,23 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2543673160111394916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2543673160111394921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70667f7d1b43c74ab3255f144adfdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 30
-  interactionTransform: {fileID: 2543673160111394917}
-  canInteract: 0
-  promptMessage: Press 'P' to interact
-  item: {fileID: 11400000, guid: b0bbed6c3605b574686dccb1ed9a8b4c, type: 2}
 --- !u!82 &8358827607338305099
 AudioSource:
   m_ObjectHideFlags: 0
@@ -169,6 +152,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7290737474554495695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543673160111394921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a892932b731cb4e81a85c274f62a4b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 30
+  interactionTransform: {fileID: 2543673160111394917}
+  canInteract: 0
+  promptMessage: Press 'P' to interact
+  item: {fileID: 11400000, guid: b0bbed6c3605b574686dccb1ed9a8b4c, type: 2}
 --- !u!1 &7329637748461538976
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class DogCage : Interactable
     // Private
     AudioSource audioSource;
     GoalManager goalManager;
-    Inventory inventory;
+    InventoryBehavior inventory;
 
     // Public
     public GameObject puppyPrefab;
@@ -21,7 +21,7 @@ public class DogCage : Interactable
     protected override void Start()
     {
         base.Start();
-        inventory = Inventory.instance;
+        inventory = InventoryBehavior.instance;
     }
 
     protected override void Update()

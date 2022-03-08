@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestPrefab: {fileID: 2543673160111394921, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
   itemsToDrop:
-  - {fileID: 11400000, guid: 9f8d7367ccd5daa49838889ae3df7a55, type: 2}
+  - {fileID: 11400000, guid: b0bbed6c3605b574686dccb1ed9a8b4c, type: 2}
 --- !u!114 &6900586320731793724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81dfe0601011c7419c4302375964c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  immunityTime: 0.5
+  invincibilityTime: 0
   blinkFrequency: 12
   onDamagedSound: {fileID: 0}
   onDeathSound: {fileID: 0}

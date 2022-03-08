@@ -13,11 +13,6 @@ public class QuestSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (quest != null)
-        {
-
-        }
-
         questMenu = QuestScreenUI.instance;
     }
 
@@ -30,7 +25,9 @@ public class QuestSelector : MonoBehaviour
     public void UpdateSelector()
     {
         if (quest != null)
-           questName.text = quest.information.name;
+        {
+            questName.text = quest.information.name;
+        }
     }
 
     public void SelectQuest()

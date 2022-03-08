@@ -56,7 +56,7 @@ public class WoofersAI : MonoBehaviour
     private GameObject attackHolder;
     private AttackType attack;
 
-    private AudioSource audio;
+    private new AudioSource audio;
 
     //Sound Effects
     [SerializeField]

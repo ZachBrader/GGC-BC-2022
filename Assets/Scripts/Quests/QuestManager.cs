@@ -15,7 +15,6 @@ public class QuestManager : MonoBehaviour
             return;
         }
         instance = this;
-        Debug.Log("Assigned Goal Manager to instance");
     }
     #endregion
 
@@ -27,25 +26,28 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
+        // Add Quests under the quest manager object
         Quest[] foundQuests = this.transform.GetComponentsInChildren<Quest>();
 
+        // Add them accordingly
         foreach (Quest quest in foundQuests)
         {
-            Debug.Log(quest.information.name);
-            Debug.Log(AddActiveQuest(quest));
-
+            AddActiveQuest(quest);
         }
     }
 
     public bool AddActiveQuest(Quest quest)
     {
+        // Don't add if we are at max
         if (activeQuests.Count >= MAX_QUESTS)
         {
             return false;
         }
 
+        // Add to active quests list
         activeQuests.Add(quest);
 
+        // Update subscribers
         onQuestsChanged?.Invoke();
 
         return true;
@@ -53,16 +55,20 @@ public class QuestManager : MonoBehaviour
 
     public bool RemoveActiveQuest(Quest quest)
     {
+        // Attempt to remove
         bool removeQuest = activeQuests.Remove(quest);
 
+        // Send subscribers update
         onQuestsChanged?.Invoke();
 
+        // Return result of remove
         return removeQuest;
     }
 
     public bool AddCompletedQuest(Quest quest)
     {
-        activeQuests.Add(quest);
+        // Add to completed quests list
+        completedQuests.Add(quest);
         return true;
     }
 

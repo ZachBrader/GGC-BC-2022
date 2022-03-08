@@ -20,7 +20,7 @@ public class PlayerWeapon : MonoBehaviour
     }
     #endregion
 
-    private Inventory inventory;
+    private InventoryBehavior inventory;
     private AudioSource audioSource;
 
     public AudioClip equipAudio;
@@ -36,7 +36,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         int numSlots = System.Enum.GetNames(typeof(WeaponSlot)).Length;
         currentWeapons = new Weapon[numSlots];
-        inventory = Inventory.instance;
+        inventory = InventoryBehavior.instance;
 
         // Equip defaults
         currentWeapons[0] = defaultMelee;

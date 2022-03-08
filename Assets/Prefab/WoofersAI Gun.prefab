@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints:
-    list:
-    - {fileID: 0}
+    list: []
   goodEnough: 3
   patrolSpeed: 20
   playerDetectionMask:
@@ -203,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestPrefab: {fileID: 2543673160111394921, guid: 2e9f04f627525fd4a8c62bf6dd05e7f5, type: 3}
   itemsToDrop:
-  - {fileID: 11400000, guid: 9f8d7367ccd5daa49838889ae3df7a55, type: 2}
+  - {fileID: 11400000, guid: b0bbed6c3605b574686dccb1ed9a8b4c, type: 2}
 --- !u!114 &5829365535655912911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,8 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81dfe0601011c7419c4302375964c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  immunityTime: 0.5
+  invincibilityTime: 0
   blinkFrequency: 12
   onDamagedSound: {fileID: 8300000, guid: bdf363059c2d57a43b28c3e086e7ac64, type: 3}
   onDeathSound: {fileID: 8300000, guid: 83bbf45db7adafe49ac188ee44e2793f, type: 3}

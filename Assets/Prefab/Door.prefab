@@ -44,13 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 722459233404865752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d991b108eb843bda538a8f355ef34b, type: 3}
+  m_Script: {fileID: 11500000, guid: e5190c80f36ee4d87a87d321ad548887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 30
   interactionTransform: {fileID: 93837221957473890}
   canInteract: 0
-  promptMessage: Press 'P' to Open
+  promptMessage: Press 'P' to interact
   anim: {fileID: 722459233404865750}
 --- !u!95 &722459233404865750
 Animator:

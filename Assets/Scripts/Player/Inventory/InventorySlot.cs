@@ -18,7 +18,6 @@ public class InventorySlot : MonoBehaviour
             icon.sprite = item.icon;
         }
         icon.enabled = true;
-
         removeButton.interactable = true;
     }
 
@@ -35,7 +34,7 @@ public class InventorySlot : MonoBehaviour
 
     public void OnRemoveButton()
     {
-        Inventory.instance.Remove(item);
+        InventoryBehavior.instance.Remove(item);
     }
 
     // Use item

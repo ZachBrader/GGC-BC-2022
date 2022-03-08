@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1075934021453705356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5828706580231125221}
+  - component: {fileID: 4889026103259775665}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5828706580231125221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075934021453705356}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.348, y: 48.90223, z: 0.34370506}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5742552056165636902}
+  - {fileID: 4356626684014269411}
+  m_Father: {fileID: 3329499628904712878}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4889026103259775665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075934021453705356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd72a72b9d0834049834c13767f3d23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAX_QUESTS: 5
+  activeQuests: []
+  completedQuests: []
 --- !u!1 &3329499628904713043
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +61,7 @@ GameObject:
   - component: {fileID: 3329499628904712877}
   - component: {fileID: 3329499628904713042}
   - component: {fileID: 3329499628904712873}
+  - component: {fileID: 5898554193669285192}
   - component: {fileID: 3329499628904712872}
   - component: {fileID: 3704667178032475142}
   - component: {fileID: 8346333087039873440}
@@ -43,6 +93,7 @@ Transform:
   - {fileID: 1396910629134756363}
   - {fileID: 1758350010694770673}
   - {fileID: 320348822843643011}
+  - {fileID: 5828706580231125221}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90,6 +141,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
   speed: 30
+--- !u!114 &5898554193669285192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329499628904713043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74505c4ec9fc6424294a5d591090ecc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 1
+  dashTime: 0.1
 --- !u!114 &3329499628904712872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,10 +197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f04dd70166c034d8fadc986e60e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingPoint: {fileID: 3893798661561445586}
+  attackPoint: {fileID: 3893798661561445586}
   bullet: {fileID: 5177115547561540453, guid: 7810b176fbd9acb4a898fce21b044d7e, type: 3}
   bulletSpeed: 50
-  animator: {fileID: 0}
+  meleeSwingTime: 0.25
+  animator: {fileID: 7003484749167989673}
   attackRange: 1.29
   enemyLayers:
     serializedVersion: 2
@@ -153,10 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8088262fa46128947afd0779b2df9d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
-  MAX_HEALTH: 9
   invincibilityTime: 1.5
   blinkFrequency: 8
+  health: 0
 --- !u!82 &2590341869195073549
 AudioSource:
   m_ObjectHideFlags: 0
@@ -465,6 +530,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4290197637209780417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5742552056165636902}
+  - component: {fileID: 454208996988541277}
+  - component: {fileID: 6710278658483595853}
+  m_Layer: 0
+  m_Name: Quest 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5742552056165636902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290197637209780417}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5828706580231125221}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454208996988541277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290197637209780417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de55f12ca5fb45fe9d582ec94ae645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  information:
+    name: Quest 1
+    description: Kill that guy
+  isComplete: 0
+  isPrimary: 0
+  goals:
+  - {fileID: 6710278658483595853}
+--- !u!114 &6710278658483595853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290197637209780417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e03f5d6e84b4167ad3299e17332f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Kill a specific cyberdog
+  requiredAmount: 1
+  isComplete: 0
+  enemies:
+  - {fileID: 0}
 --- !u!1 &4569672327403091994
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +682,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5552730522597058864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4356626684014269411}
+  - component: {fileID: 5190185545466169880}
+  - component: {fileID: 2972577302162705934}
+  m_Layer: 0
+  m_Name: Quest 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4356626684014269411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552730522597058864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5828706580231125221}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5190185545466169880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552730522597058864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de55f12ca5fb45fe9d582ec94ae645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  information:
+    name: Quest 2
+    description: Kill that other guy
+  isComplete: 0
+  isPrimary: 0
+  goals:
+  - {fileID: 2972577302162705934}
+--- !u!114 &2972577302162705934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552730522597058864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e03f5d6e84b4167ad3299e17332f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: You see that other cyberdog? Kill him
+  requiredAmount: 1
+  isComplete: 0
+  enemies:
+  - {fileID: 0}
 --- !u!1 &5911187152997224883
 GameObject:
   m_ObjectHideFlags: 0

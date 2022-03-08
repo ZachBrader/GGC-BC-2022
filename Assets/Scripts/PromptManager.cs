@@ -16,7 +16,6 @@ public class PromptManager : MonoBehaviour
             return;
         }
         instance = this;
-        Debug.Log("Assigned prompt manager to an instance");
     }
     #endregion
 

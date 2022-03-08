@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    // Controls for attacks
+    public static bool canShoot = true;
+    public static bool canMelee = true;
+    public static bool canPlaceBomb = true;
+
+    // Position for where attacks spawn from
+    public Transform attackPoint;
+
     // Ranged Weapon Variables
-    public Transform firingPoint; // Used by weapons to determine where to attack 
     public GameObject bullet;
     public float bulletSpeed;
 
-    PlayerWeapon playerWeapon; // Reference to currently equipped weapons
+    // Melee Weapon Variables
+    public float meleeSwingTime = 10f;
+    private bool isSwingingMelee = false;
+    private float meleeSwingCounter = 0f;
+
+    // Reference to currently equipped weapons
+    PlayerWeapon playerWeapon; 
 
     public Animator animator;
     public float attackRange = .5f; // Replace with item's range
@@ -18,17 +31,15 @@ public class PlayerAttack : MonoBehaviour
     public AudioClip onAttackAudio;
     private AudioSource source;
 
-    public float meleeSwingTime = 10f;
-    private bool isSwingingMelee = false;
-    private float meleeSwingCounter = 0f;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         playerWeapon = PlayerWeapon.instance;
-        if (firingPoint == null)
+        if (attackPoint == null)
         {
-            firingPoint = transform;
+            attackPoint = transform;
         }
 
         source = GetComponent<AudioSource>();
@@ -54,6 +65,7 @@ public class PlayerAttack : MonoBehaviour
         // Player Clicks button to shoot
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Shootinh");
             Shoot();
         }
 
@@ -79,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
         // Play Animation
 
         // Determine enemies in range
-        Collider[] hitEnemies = Physics.OverlapSphere(firingPoint.position, melee.range, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, melee.range, enemyLayers);
 
         // Deal damage
         foreach(Collider enemy in hitEnemies)
@@ -97,7 +109,7 @@ public class PlayerAttack : MonoBehaviour
         Weapon ranged = playerWeapon.currentWeapons[1];
 
         // Create bullet
-        GameObject nBullet = Instantiate(bullet, firingPoint.position, transform.rotation) as GameObject;
+        GameObject nBullet = Instantiate(bullet, attackPoint.position, transform.rotation) as GameObject;
         Rigidbody nBulletRigidbody = nBullet.GetComponent<Rigidbody>();
 
         // Assign damage
@@ -109,8 +121,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (firingPoint == null)
+        if (attackPoint == null)
             return;
-        Gizmos.DrawWireSphere(firingPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

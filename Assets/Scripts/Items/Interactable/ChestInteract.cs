@@ -42,7 +42,7 @@ public class ChestInteract : Interactable
         animator.Play("Chest Open");
 
         // Add Item to inventory
-        bool wasPickedUp = Inventory.instance.Add(item);
+        bool wasPickedUp = InventoryBehavior.instance.Add(item);
 
         // Destroy if item was picked up
         if (wasPickedUp)

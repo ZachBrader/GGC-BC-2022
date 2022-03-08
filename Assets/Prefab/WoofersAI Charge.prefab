@@ -141,6 +141,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: bee2010ddbde34343806e9aa6625dd26, type: 3}
     - target: {fileID: 436160044198122586, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
+      propertyPath: patrolPoints.list.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436160044198122586, guid: 7ec28aea510aa984c91934a81e44ac72, type: 3}
       propertyPath: timeBetweenPatrolSoundPlaying
       value: 5
       objectReference: {fileID: 0}

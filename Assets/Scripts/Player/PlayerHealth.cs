@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 [RequireComponent (typeof (PlayerController))]
@@ -22,8 +23,7 @@ public class PlayerHealth : Health
 
     private AudioSource audioSource;
 
-    public delegate void OnHealthChanged();
-    public OnHealthChanged onHealthChanged;
+    public event Action onHealthChanged;
 
 
     protected override void Start()
